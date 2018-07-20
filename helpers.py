@@ -1,6 +1,6 @@
 # --- Hardcoded bank balance for user ---
 
-def __init__:
+def init():
     hardcodedAccountBalance = {'current' : 100, 'savings' : 10000}
 
 # --- Helper function for making HTTP requests ---

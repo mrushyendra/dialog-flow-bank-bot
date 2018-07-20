@@ -25,8 +25,8 @@ def dispatch(requestBody, eventsData):
     if requestBody is None:
         return None
     requestBody = json.loads(requestBody)
-    intent = try_ex(lambda: requestBody['queryResult']['intent']['displayName'])
-    result = (try_ex(lambda: funcDict[intent](requestBody, eventsData)))
+    intent = validate.try_ex(lambda: requestBody['queryResult']['intent']['displayName'])
+    result = (validate.try_ex(lambda: funcDict[intent](requestBody, eventsData)))
     if result is None:
         raise Exception('Intent with name ' + intent + ' not supported')
     return result

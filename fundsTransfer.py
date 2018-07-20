@@ -141,7 +141,7 @@ def getRecipient_fundsTransfer(requestBody, eventsData):
     error = event = message = followUpEvent = None
 
     # Read from the getrecipient_fundstransfercontext that has been passed in as part of the input http request
-    outputContexts = try_ex(lambda: requestBody['queryResult']['outputContexts'])
+    outputContexts = validate.try_ex(lambda: requestBody['queryResult']['outputContexts'])
     currContext = session+"/contexts/getrecipient_fundstransfercontext"
     for context in outputContexts:
         if context['name'] == currContext:
