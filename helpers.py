@@ -1,6 +1,9 @@
+import validate
+
 # --- Hardcoded bank balance for user ---
 
 def init():
+    global hardcodedAccountBalance
     hardcodedAccountBalance = {'current' : 100, 'savings' : 10000}
 
 # --- Helper function for making HTTP requests ---
@@ -16,7 +19,7 @@ def deductAccountBalance(userAccountBalance, accountType, amount):
     """
     Updates actual account balance. Note: In final version this would require a backend call to deduct and transfer money. 
     """
-    amountNum = try_ex(lambda: amount['amount'])
+    amountNum = validate.try_ex(lambda: amount['amount'])
     if amountNum is not None:
         if userAccountBalance[accountType] >= amountNum:
             userAccountBalance[accountType]-=amountNum
