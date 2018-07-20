@@ -67,7 +67,7 @@ def confirm_billPayment(requestBody, eventsData):
 
     if confirm is not None and confirm != "":
         if confirm == 'yes':
-            remainingBalance = deductAccountBalance(helpers.hardcodedAccountBalance, account, amount) #Would require backend API call in actual code
+            remainingBalance = helpers.deductAccountBalance(helpers.hardcodedAccountBalance, account, amount) #Requires backend API call in actual code
             message = eventsData[event]['languages'][languageCode][0].format(amount['amount'], biller, account, remainingBalance)
             return helpers.createResponseBody(message, None, None)
         else:#Either user has said no, or possibly some error in their response. TODO: Split up messages for both cases
