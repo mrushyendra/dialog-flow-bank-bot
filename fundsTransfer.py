@@ -71,6 +71,7 @@ def confirm_fundsTransfer(requestBody, eventsData):
 
     if confirm is not None and confirm != "":
         if confirm == 'yes':
+            #Make call to fulfillment function here
             remainingBalance = helpers.deductAccountBalance(helpers.hardcodedAccountBalance, account, amount) #Requires backend API call in actual code
             message = eventsData[event]['languages'][languageCode][0].format(amount['amount'], recipient, account, remainingBalance)
             return helpers.createResponseBody(message, None, None)
