@@ -1,7 +1,7 @@
 # dialogFlowBankBot
 Webhook for a dialogflow banking bot. Demonstrates the use of chaining and output contexts to enable validation and reprompting of parameters before an intent is fulfilled.
 
-##Overview
+## Overview
 
 In other conversational platforms (such as Amazon Lex), each business service (Accounts Summary, Funds Transfer, etc.) can have its own single separate intent. This is not possible in dialogflow because the slot-filling webhook call does not allow us to overwrite any invalid slot nor decide which slot to elicit next. To overcome this, each business service is split into multiple intents, with one intent for each slot. For example, in the case of Funds Transfer, there is 1 initial intent to collect all slots supplied by the user, a ‘getRecipient\_fundsTransfer’ intent to elicit for recipient’s name if it is missing or invalid, and similiar ‘getAccount\_fundsTransfer’, ‘getAmount\_fundsTransfer’ and ‘confirm\_fundsTransfer’ intents.
 
@@ -9,7 +9,7 @@ A sample conversation flow is show in the diagram below. The user first enters t
 
 ![Sample Conversation Flow](images/conversationFlow.png)
 
-##Instructions
+## Instructions
 1. Create a new dialogflow agent. Select the Settings icon (gear symbol) followed by the 'Export and Import' tab.
 2. Select 'IMPORT FROM ZIP'.
 3. Upload the zip folder entitled 'bankingBotSchematic.zip' found in the repository.
