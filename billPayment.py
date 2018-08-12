@@ -30,6 +30,7 @@ def payBill(requestBody, eventsData):
         parameters['event'] = 'BILL_PAYMENT_GET_BILLER'
         contextName = session+"/contexts/getbiller_billpaymentcontext"
 
+    #save entered slots for next intent
     outputContexts = [
         {
             "name": contextName,
